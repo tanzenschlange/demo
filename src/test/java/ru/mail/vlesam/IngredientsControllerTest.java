@@ -30,7 +30,7 @@ public class IngredientsControllerTest {
     @Test
     public void getAllIngredients() throws Exception {
         this.mockMvc.perform(get("/ingredients")
-                .accept(MediaType.parseMediaType("application/json")))
+                .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
                         .json("[\"MOZARELLA\",\"PAPRIKA\",\"CHICKEN\",\"BEEF\",\"PORK\",\"ONION\",\"GARLIC\",\"OLIVES\",\"PINEAPPLE\",\"SHRIMPS\",\"SALMON\"]"));
@@ -39,7 +39,7 @@ public class IngredientsControllerTest {
     @Test
     public void getAllCompatibleWithPork() throws Exception {
         this.mockMvc.perform(get("/ingredients/allCompatibleWith/PORK")
-                .accept(MediaType.parseMediaType("application/json")))
+                .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
                         .json("[\"MOZARELLA\",\"PAPRIKA\",\"CHICKEN\",\"BEEF\",\"PORK\",\"OLIVES\",\"PINEAPPLE\",\"SALMON\"]"));
@@ -49,7 +49,7 @@ public class IngredientsControllerTest {
     @Test
     public void salmonIsCompatibleWithMozarella() throws Exception {
         this.mockMvc.perform(get("/ingredients/SALMON/compatibleWith/MOZARELLA")
-                .accept(MediaType.parseMediaType("application/json")))
+                .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("true"));
     }
@@ -57,7 +57,7 @@ public class IngredientsControllerTest {
     @Test
     public void porkIsNotCompatibleWithShrimps() throws Exception {
         this.mockMvc.perform(get("/ingredients/PORK/compatibleWith/SHRIMPS")
-                .accept(MediaType.parseMediaType("application/json")))
+                .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("false"));
     }
@@ -66,7 +66,7 @@ public class IngredientsControllerTest {
     @Test
     public void unknownIngredientsProduceException() throws Exception {
         MvcResult mvcResult = this.mockMvc.perform(get("/ingredients/BEER/compatibleWith/VODKA")
-                .accept(MediaType.parseMediaType("application/json")))
+                .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest())
                 .andReturn();
 
