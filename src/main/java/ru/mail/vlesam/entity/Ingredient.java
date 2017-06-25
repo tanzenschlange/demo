@@ -7,7 +7,7 @@ import java.util.EnumSet;
  */
 public enum Ingredient {
 
-    MOZARELLA,
+    MOZZARELLA,
     PAPRIKA,
     CHICKEN,
     BEEF,
@@ -23,7 +23,7 @@ public enum Ingredient {
         EnumSet<Ingredient> exclusions;
 
         switch (this) {
-            case MOZARELLA:
+            case MOZZARELLA:
                 exclusions = EnumSet.noneOf(Ingredient.class);
                 break;
             case PAPRIKA:

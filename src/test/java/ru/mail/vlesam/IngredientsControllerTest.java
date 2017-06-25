@@ -33,7 +33,7 @@ public class IngredientsControllerTest {
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
-                        .json("[\"MOZARELLA\",\"PAPRIKA\",\"CHICKEN\",\"BEEF\",\"PORK\",\"ONION\",\"GARLIC\",\"OLIVES\",\"PINEAPPLE\",\"SHRIMPS\",\"SALMON\"]"));
+                        .json("[\"MOZZARELLA\",\"PAPRIKA\",\"CHICKEN\",\"BEEF\",\"PORK\",\"ONION\",\"GARLIC\",\"OLIVES\",\"PINEAPPLE\",\"SHRIMPS\",\"SALMON\"]"));
     }
 
     @Test
@@ -42,13 +42,13 @@ public class IngredientsControllerTest {
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
-                        .json("[\"MOZARELLA\",\"PAPRIKA\",\"CHICKEN\",\"BEEF\",\"PORK\",\"OLIVES\",\"PINEAPPLE\",\"SALMON\"]"));
+                        .json("[\"MOZZARELLA\",\"PAPRIKA\",\"CHICKEN\",\"BEEF\",\"PORK\",\"OLIVES\",\"PINEAPPLE\",\"SALMON\"]"));
     }
 
 
     @Test
     public void salmonIsCompatibleWithMozarella() throws Exception {
-        this.mockMvc.perform(get("/ingredients/SALMON/compatibleWith/MOZARELLA")
+        this.mockMvc.perform(get("/ingredients/SALMON/compatibleWith/MOZZARELLA")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("true"));

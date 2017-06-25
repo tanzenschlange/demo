@@ -63,15 +63,15 @@ public class PizzaControllerTest {
 
         List<FieldError> errors = e.getBindingResult().getFieldErrors("ingredients");
         assertThat(errors).hasSize(2);
-        assertThat(errors.get(0).getCode()).isEqualTo("Incompatible ingredient pair: [PORK, SHRIMPS]");
         assertThat(errors.get(1).getCode()).isEqualTo("Incompatible ingredient pair: [SHRIMPS, SALMON]");
+        assertThat(errors.get(0).getCode()).isEqualTo("Incompatible ingredient pair: [PORK, SHRIMPS]");
     }
 
 
     @Test
     public void pizzaBaked() throws Exception {
         MvcResult mvcResult = this.mockMvc.perform(post("/pizza")
-                .content("{\"size\":\"LARGE\", \"ingredients\":[\"SHRIMPS\", \"MOZARELLA\", \"OLIVES\"]}")
+                .content("{\"size\":\"LARGE\", \"ingredients\":[ \"MOZZARELLA\", \"SHRIMPS\", \"OLIVES\"]}")
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
         )
@@ -79,7 +79,7 @@ public class PizzaControllerTest {
                 .andReturn();
 
         assertThat(mvcResult.getResponse().getContentAsString())
-                .contains("{\"pizza\":{\"size\":\"LARGE\",\"ingredients\":[\"SHRIMPS\",\"MOZARELLA\",\"OLIVES\"]}");
+                .contains("{\"pizza\":{\"size\":\"LARGE\",\"ingredients\":[\"MOZZARELLA\", \"SHRIMPS\",\"OLIVES\"]}");
 
     }
 }

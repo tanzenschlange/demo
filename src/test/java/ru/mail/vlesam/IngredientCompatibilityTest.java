@@ -13,7 +13,7 @@ public class IngredientCompatibilityTest {
     @Test
     public void testCompatibility(){
         assertThat(SALMON.compatibleWith())
-                .contains(MOZARELLA)
+                .contains(MOZZARELLA)
                 .doesNotContain(SHRIMPS);
     }
 
