@@ -15,4 +15,4 @@ SMALL, MEDIUM, LARGE, EXTRA_LARGE
 MOZZARELLA, PAPRIKA, CHICKEN, BEEF, PORK, ONION, GARLIC, OLIVES, PINEAPPLE, SHRIMPS, SALMON
 
 
-На данный момент есть баг, что сервис возвращает ингридиенты в случайном порядке, поэтому часть тестов проваливается.
+На данный момент есть баг, что сервис возвращает ингридиенты в случайном порядке, поэтому часть тестов проваливается. Например {"size":"LARGE", "ingredients":["SHRIMPS", "MOZZARELLA","OLIVES"]} может вернуться в виде {"size":"LARGE", "ingredients":["SHRIMPS","OLIVES", "MOZZARELLA"]}.
