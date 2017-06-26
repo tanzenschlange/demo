@@ -13,3 +13,6 @@ SMALL, MEDIUM, LARGE, EXTRA_LARGE
 
 Список ингредиентов:
 MOZZARELLA, PAPRIKA, CHICKEN, BEEF, PORK, ONION, GARLIC, OLIVES, PINEAPPLE, SHRIMPS, SALMON
+
+
+На данный момент есть баг, что сервис возвращает ингридиенты в случайном порядке, поэтому часть тестов проваливается.
